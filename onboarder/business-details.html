@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Details - PharmaHub</title>
+    <link rel="stylesheet" href="onboard.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="./assets/logo.png"
+            alt="PharmaHub Logo"
+            style="height: 40px"
+          />
+        </a>
+      </div>
+    </nav>
+
+    <!-- Business Details Form -->
+    <div class="onboard-wrapper">
+      <div class="onboard-form">
+        <h1>Business Details</h1>
+        <form id="businessDetailsForm">
+          <input
+            type="text"
+            id="companyName"
+            placeholder="Business Company Name *"
+            required
+          />
+          <textarea
+            id="businessAddress"
+            placeholder="Business Address *"
+            required
+          ></textarea>
+          <input type="text" id="pinCode" placeholder="Pin Code *" required />
+          <input type="text" id="city" placeholder="City *" required />
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Password *"
+            required
+          />
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password *"
+            required
+          />
+          <button type="button" id="submitBusinessDetails">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section policy">
+          <h3>Policy Info</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section subscription">
+          <h3>Your Easy, Affordable Healthcare Hub.</h3>
+          <div class="subscribe">
+            <button type="submit" class="btn send-btn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+          <p>
+            Don't Keep All the Savings to Yourself. Share or tell a friend about
+            us!
+          </p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("submitBusinessDetails")
+        .addEventListener("click", () => {
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+          if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+          }
+
+          window.location.href = "success.html";
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+/* Navbar Styling */
+.navbar {
+  background-color: #012d44;
+  padding: 10px 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+.navbar-brand img {
+  height: 40px;
+}
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+}
+
+.btn-outline-success {
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-primary {
+  background-color: #6f42c1;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #563d7c;
+}
+
+/* Auth Wrapper */
+.auth-wrapper {
+  display: flex;
+  height: calc(100vh - 80px); /* Full height minus navbar */
+}
+
+.auth-carousel {
+  flex: 1;
+}
+
+.carousel-item img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.auth-form {
+  flex: 1;
+  background-color: #e8f4f8;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-form h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #012d44;
+}
+
+.auth-form form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.forgot-password {
+  color: #6f42c1;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}

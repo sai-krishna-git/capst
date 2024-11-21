@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* Results Section */
+.results-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 28px;
+  color: #012d44;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  margin-top: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 15px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-bottom: none;
+}
+
+.tab.active {
+  background-color: white;
+  border-top: 2px solid #00a0d2;
+  color: #00a0d2;
+  font-weight: bold;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Pharmacy Cards */
+.pharmacy-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pharmacy-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  width: calc(50% - 20px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.pharmacy-card img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.pharmacy-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.pharmacy-info {
+  font-size: 14px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.pharmacy-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2a9d8f;
+}
+
+.discount-tag {
+  background-color: #f4a261;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.delivery-info,
+.out-of-stock {
+  font-size: 12px;
+  color: #e63946;
+}
+
+.view-product {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #264653;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}

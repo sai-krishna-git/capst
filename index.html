@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PharmaHub</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: #f0f0f0;
+      height: 100vh;
+    }
+    .logo {
+      max-width: 100%;
+      height: 80px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* style for searchbox */
+    /* Style for the search section */
+
+    /* style for How PharmaHub Works section */
+    .works-section img {
+      margin: 10px 0;
+    }
+    .works-section .col-md-3 {
+      margin-bottom: 30px;
+    }
+
+    /* style for Boost Your Business section */
+    .boost-section img {
+      max-width: 200px;
+      margin: 10px 0;
+    }
+    .boost-section .col-md-3 {
+      margin-bottom: 30px;
+    }
+
+    /* style for Compare and Save section */
+
+    /* style for footer */
+    .footer {
+      background-color: #062d42;
+      padding: 40px 0;
+      color: white;
+      border-top: 0.06rem solid rgb(0, 0, 0);
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .footer-section {
+      flex: 1;
+      padding: 20px;
+      min-width: 250px;
+    }
+
+    .footer-section h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+    }
+
+    .footer-section.subscription h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .subscribe {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .subscribe input {
+      padding: 10px;
+      border-radius: 3px;
+      margin-right: 5px;
+      flex: 1;
+    }
+
+    .subscribe button {
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+
+    .footer-section.subscription p {
+      margin: 15px 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-icons a {
+      font-size: 30px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #f8f9fa;
+    }
+    .send-btn:hover {
+      background-color: #44607c;
+      color: #000000;
+    }
+  </style>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"
+          ><img class="logo" src="./assets/logo.png"
+        /></a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="locationDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-map-marker-alt"></i> Vijayawada
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="locationDropdown">
+                <li><a class="dropdown-item" href="#">Hyderabad</a></li>
+                <li><a class="dropdown-item" href="#">Chennai</a></li>
+                <li><a class="dropdown-item" href="#">Bangalore</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="#" class="btn btn-outline-light me-2">Become a Seller</a>
+            <a href="auth.html" class="btn btn-outline-light">
+              <i class="fas fa-user"></i> Sign in / Sign up
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Search Box Section -->
+    <div class="search-section text-center">
+      <div class="container">
+        <h2 class="mb-4">Search & Compare Medicine Prices Online</h2>
+        <p class="lead">Save Upto 70% On your Medicine</p>
+
+        <form id="searchForm" class="search-box" autocomplete="off">
+          <input
+            type="text"
+            class="form-control search-input"
+            id="searchInput"
+            placeholder="Search for Medicines..."
+            required
+          />
+          <button type="submit" class="btn btn-search">
+            <i class="fas fa-search"></i>
+          </button>
+          <div id="suggestions" class="suggestions-box"></div>
+        </form>
+
+        <div class="trusted-logos mt-4">
+          <img src="./assets/Mrmed.png" alt="Mrmed" class="trusted-logo" />
+          <img
+            src="./assets/Truemeds.png"
+            alt="Truemeds"
+            class="trusted-logo"
+          />
+          <img
+            src="./assets/PharmEasy.png"
+            alt="PharmEasy"
+            class="trusted-logo"
+          />
+          <img src="./assets/TATA1mg.png" alt="TATA 1mg" class="trusted-logo" />
+          <img src="./assets/Netmed.png" alt="NetMeds" class="trusted-logo" />
+          <img
+            src="./assets/Kauvery.png"
+            alt="KauveryMeds"
+            class="trusted-logo"
+          />
+        </div>
+
+        <p class="availability-text mt-5">
+          Check Availability of Your Medicines
+        </p>
+      </div>
+      <div id="loader" style="display: none; color: white">Loading...</div>
+      <!-- Loader -->
+    </div>
+
+    <!-- How PharmaHub Works Section -->
+    <div class="container my-5 text-center works-section">
+      <h2 class="mb-4">How PharmaHub Works</h2>
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets/search_medicines.jpg" alt="Search Medicines" />
+          <p>Search Medicines</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets/compare_prices.jpg" alt="Compare Prices" />
+          <p>Compare Medicine Prices</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <img
+            src="./assets/select_pharmacy.jpg"
+            alt="Select Online Pharmacy"
+          />
+          <p>Select Online Pharmacy</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets/buy_medicine.jpg" alt="Buy Medicine Online" />
+          <p>Buy Medicine Online</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boost Your Business Section -->
+    <div class="container my-5 text-center boost-section">
+      <h2 class="mb-4">
+        Boost Your Business with PharmaHub – Seamless Selling in Just 4 Steps!
+      </h2>
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets/register.jpg" alt="Register" />
+          <p>Register</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets/sell.jpg" alt="Sell" />
+          <p>Sell</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets/earn.jpg" alt="Earn" />
+          <p>Earn</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets/grow.jpg" alt="Grow" />
+          <p>Grow</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compare and Save Section -->
+    <!-- Compare and Save Section -->
+    <div class="container my-5 compare-save">
+      <div class="row align-items-center">
+        <!-- Image on the left -->
+        <div class="col-md-6 text-center">
+          <img
+            src="./assets/compare_save.jpg"
+            alt="Compare and Save"
+            class="img-fluid"
+          />
+        </div>
+        <!-- Text on the right -->
+        <div class="col-md-6 text-md-start text-center">
+          <h2 class="mb-4">Compare and Save</h2>
+          <h3>Let’s Make Healthcare</h3>
+          <h3 class="text-primary">More Affordable</h3>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section policy">
+          <h3>Policy Info</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section subscription">
+          <h3>Your Easy, Affordable Healthcare Hub.</h3>
+          <div class="subscribe">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Enter Your Email Address..."
+            />
+            <button type="submit" class="btn send-btn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+          <p>
+            Don't Keep All the Savings to Yourself<br />Share or tell a friend
+            about us!
+          </p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./HomePageScript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
