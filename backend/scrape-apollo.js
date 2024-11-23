@@ -1,50 +1,65 @@
 const puppeteer = require("puppeteer");
 
-let browser; // Declare the browser instance
-let page; // Declare the page instance
+let browser;
+let page;
+let page2;
 
 async function initializeBrowser() {
   if (!browser) {
     browser = await puppeteer.launch({ headless: true });
-    page = await browser.newPage(); // Create a persistent page instance
+    page = await browser.newPage();
+    page2 = await browser.newPage();
   }
 }
 
 async function scrapeMedicine(searchTerm) {
   try {
-    // Initialize the browser and page if not already done
     await initializeBrowser();
 
-    // Navigate to the desired page
     await page.goto(
-      "https://www.apollopharmacy.in/search-medicines/" + searchTerm,
-      {
-        waitUntil: "domcontentloaded",
-      }
+      `https://www.apollopharmacy.in/search-medicines/${searchTerm}`,
+      { waitUntil: "domcontentloaded" }
     );
 
     await page.waitForSelector(".ProductCard_productCardGrid__NHfRH", {
       timeout: 20000,
     });
 
-    // Scrape the price data
     const medicineData = await page.evaluate(() => {
       const item = document.getElementsByClassName(
         "ProductCard_productCardGrid__NHfRH"
       )[0];
-      const link = item.querySelector("a");
+      if (!item) return null;
 
-      // Get the href attribute value
+      const link = item.querySelector("a");
       const hrefValue = link ? link.getAttribute("href") : null;
       const name =
         (item.querySelector(".XV")?.textContent.trim() || "N/A") +
         (item.querySelector(".wd")?.textContent.trim() || "");
       const price = item.querySelector(".Vd")?.textContent.trim() || "N/A";
-      console.log(price);
-      return { name, price, url: `https://www.apollopharmacy.in${hrefValue}` };
+
+      return {
+        name,
+        price,
+        url: hrefValue ? `https://www.apollopharmacy.in${hrefValue}` : null,
+      };
     });
 
-    return medicineData;
+    if (!medicineData || !medicineData.url) {
+      throw new Error("Medicine data or description URL not found.");
+    }
+
+    await page2.goto(medicineData.url, { waitUntil: "domcontentloaded" });
+    await page2.waitForSelector(".gn", { timeout: 20000 });
+
+    const description = await page2.evaluate(() => {
+      const element = document.getElementsByClassName("gn")[0]; // Get the first element with class "gn"
+      const htmlContent = element.innerHTML; // Get the HTML inside the element
+
+      return htmlContent;
+    });
+
+    return { medicineData, description };
   } catch (error) {
     console.error("Error occurred:", error);
     return null;
@@ -54,8 +69,9 @@ async function scrapeMedicine(searchTerm) {
 async function closeBrowser() {
   if (browser) {
     await browser.close();
-    browser = null; // Reset the browser instance
-    page = null; // Reset the page instance
+    browser = null;
+    page = null;
+    page2 = null;
   }
 }
 

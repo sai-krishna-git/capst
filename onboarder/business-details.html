@@ -8,17 +8,7 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-          <img
-            src="./assets/logo.png"
-            alt="PharmaHub Logo"
-            style="height: 40px"
-          />
-        </a>
-      </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <!-- Business Details Form -->
     <div class="onboard-wrapper">
@@ -51,7 +41,7 @@
             placeholder="Confirm Password *"
             required
           />
-          <button type="button" id="submitBusinessDetails">Submit</button>
+          <button type="button" id="submitBusinessDetails">Continue</button>
         </form>
       </div>
     </div>
@@ -98,6 +88,12 @@
     </footer>
 
     <script>
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+
       document
         .getElementById("submitBusinessDetails")
         .addEventListener("click", () => {
@@ -110,7 +106,7 @@
             return;
           }
 
-          window.location.href = "success.html";
+          window.location.href = "poral.html";
         });
     </script>
   </body>

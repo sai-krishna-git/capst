@@ -1,90 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Details - PharmaHub</title>
-  <link rel="stylesheet" href="onboard.css">
-</head>
-<body>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="#" class="navbar-brand">
-        <img src="./assets/logo.png" alt="Logo">
-      </a>
-      <ul class="navbar-links">
-        <li><a href="#" class="nav-link">Home</a></li>
-      </ul>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Details - PharmaHub</title>
+    <link rel="stylesheet" href="onboard.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
 
-  <!-- Personal Details Form -->
-  <div class="onboard-wrapper">
-    <div class="onboard-form">
-      <h1>Personal Details</h1>
-      <form id="personalDetailsForm">
-        <input type="text" id="firstName" placeholder="First Name *" required>
-        <div id="firstNameError" class="error-message"></div>
-      
-        <input type="text" id="lastName" placeholder="Last Name *" required>
-        <div id="lastNameError" class="error-message"></div>
-      
-        <input type="tel" id="contactMobile" placeholder="Contact Mobile Number *" required>
-        <div id="contactMobileError" class="error-message"></div>
-      
-        <input type="email" id="contactEmail" placeholder="Contact Email ID *" required>
-        <div id="contactEmailError" class="error-message"></div>
-      
-        <input type="email" id="altEmail" placeholder="Alternate Email ID">
-        <input type="tel" id="altMobile" placeholder="Alternate Mobile Number">
-      
-        <button type="button" id="continueToBusiness" disabled>Continue</button>
-      </form>
-      
-      
-      <p class="terms">By continuing, you agree to the terms of Use & Privacy Policy.</p>
-    </div>
-  </div>
+    <!-- Personal Details Form -->
+    <div class="onboard-wrapper">
+      <div class="onboard-form">
+        <h1>Personal Details</h1>
+        <form id="personalDetailsForm">
+          <input
+            type="text"
+            id="firstName"
+            placeholder="First Name *"
+            required
+          />
+          <div id="firstNameError" class="error-message"></div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-section company">
-        <h3>Company</h3>
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-section policy">
-        <h3>Policy Info</h3>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms and Conditions</a></li>
-          <li><a href="#">Editorial Policy</a></li>
-        </ul>
-      </div>
-      <div class="footer-section subscription">
-        <h3>Your Easy, Affordable Healthcare Hub.</h3>
-        <div class="subscribe">
-          <button type="submit" class="btn send-btn">
-            <i class="fas fa-paper-plane"></i>
+          <input type="text" id="lastName" placeholder="Last Name *" required />
+          <div id="lastNameError" class="error-message"></div>
+
+          <input
+            type="tel"
+            id="contactMobile"
+            placeholder="Contact Mobile Number *"
+            required
+          />
+          <div id="contactMobileError" class="error-message"></div>
+
+          <input
+            type="email"
+            id="contactEmail"
+            placeholder="Contact Email ID *"
+            required
+          />
+          <div id="contactEmailError" class="error-message"></div>
+
+          <input type="email" id="altEmail" placeholder="Alternate Email ID" />
+          <input
+            type="tel"
+            id="altMobile"
+            placeholder="Alternate Mobile Number"
+          />
+
+          <button type="button" id="continueToBusiness" disabled>
+            Continue
           </button>
-        </div>
-        <p>Don't Keep All the Savings to Yourself. Share or tell a friend about us!</p>
-        <div class="social-icons">
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-        </div>
+        </form>
+
+        <p class="terms">
+          By continuing, you agree to the terms of Use & Privacy Policy.
+        </p>
       </div>
     </div>
-  </footer>
 
-  <!-- Include onboard.js -->
-  <script src="onboard.js"></script>
-</body>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section policy">
+          <h3>Policy Info</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section subscription">
+          <h3>Your Easy, Affordable Healthcare Hub.</h3>
+          <div class="subscribe">
+            <button type="submit" class="btn send-btn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+          <p>
+            Don't Keep All the Savings to Yourself. Share or tell a friend about
+            us!
+          </p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Include onboard.js -->
+    <script src="onboard.js"></script>
+    <script>
+      fetch("../navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+    </script>
+  </body>
 </html>

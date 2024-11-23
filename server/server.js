@@ -7,8 +7,8 @@ const authRoutes = require("./routes/auth");
 
 // Initialize dotenv to load environment variables from .env file
 dotenv.config();
+console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
-// Create Express app
 const app = express();
 
 // Connect to the database

@@ -76,7 +76,6 @@ if (document.getElementById("signinForm")) {
       }
     });
 }
-document.addEventListener("DOMContentLoaded", checkAuthStatus);
 // Check Authentication Status
 function checkAuthStatus() {
   const token = localStorage.getItem("token");
@@ -105,3 +104,13 @@ function logout() {
   localStorage.removeItem("token");
   window.location.href = "/auth.html";
 }
+
+// Load navbar
+fetch("navbar.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("navbar-placeholder").innerHTML = data;
+  })
+  .then(() => {
+    checkAuthStatus();
+  });

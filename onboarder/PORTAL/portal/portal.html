@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seller Portal - PharmaHub</title>
+    <link rel="stylesheet" href="portal.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Main Content -->
+    <div class="portal-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h3>Dashboard</h3>
+        <ul>
+          <li>
+            <a href="#" id="profileLink" class="active">Profile Details</a>
+          </li>
+          <li><a href="#" id="medicinesLink">Medicines Sold</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="content">
+        <!-- Profile Section -->
+        <section id="profileSection" class="active">
+          <h2>Profile Details</h2>
+          <p><strong>Name:</strong> John Doe</p>
+          <p><strong>Email:</strong> johndoe@example.com</p>
+          <p><strong>Business Name:</strong> PharmaHub Pvt Ltd</p>
+          <p><strong>GSTIN:</strong> 29AABBCCDD1234Z</p>
+        </section>
+
+        <!-- Medicines Section -->
+        <section id="medicinesSection">
+          <h2>Medicines Sold</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Medicine Name</th>
+                <th>Category</th>
+                <th>Quantity Sold</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Paracetamol</td>
+                <td>OTC</td>
+                <td>500</td>
+                <td>₹10,000</td>
+              </tr>
+              <tr>
+                <td>Insulin</td>
+                <td>Prescription</td>
+                <td>200</td>
+                <td>₹20,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2024 PharmaHub. All rights reserved.</p>
+    </footer>
+
+    <script src="portal.js"></script>
+    <script>
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

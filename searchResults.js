@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const tabContents = document.querySelectorAll(".tab-content");
   const pricingResults = document.getElementById("pricingResults");
   const medicineNameElement = document.getElementById("medicineName");
-  const medicineDescription = document.getElementById("medicineDescription");
+  const medicineDescription = document.getElementById("detailedInfo");
 
   document.getElementById("loadingIndicator").style.display = "visible";
   // Fetch the 'q' query parameter from the URL
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("searchTerm").textContent = searchTerm;
     try {
       const response = await fetch(
-        `https://vigilant-garbanzo-5wq69q6qj5q3v4ww-3001.app.github.dev/scrape?searchTerm=${encodeURIComponent(
+        `http://localhost:3001/scrape?searchTerm=${encodeURIComponent(
           searchTerm
         )}`
       );
@@ -68,9 +68,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         {
           store: "Apollo",
           logo: "./assets/Apollo.png",
-          name: `${data.apolloData.name} `,
-          price: `${data.apolloData.price} `,
-          url: `${data.apolloData.url} `,
+          name: `${data.apolloData.medicineData.name} `,
+          price: `${data.apolloData.medicineData.price} `,
+          url: `${data.apolloData.medicineData.url} `,
         },
         {
           store: "Netmeds",
@@ -81,11 +81,12 @@ document.addEventListener("DOMContentLoaded", async function () {
         },
         {
           store: "Local Pharmacy",
-          logo: "./assets/Netmed.png",
+          logo: "./assets/local.png",
           name: `${data.netmedsData.name} `,
           price: `${localPrice} `,
         },
       ];
+      medicineDescription.innerHTML = data.apolloData.description;
       displayResults(Results);
     } catch (error) {
       console.error("Error fetching results:", error);
