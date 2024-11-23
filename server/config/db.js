@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const connectDB = async () => {
+const connectDB = async (url) => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/pharmahub", {
+    await mongoose.connect(url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("searchTerm").textContent = searchTerm;
     try {
       const response = await fetch(
-        `http://localhost:3001/scrape?searchTerm=${encodeURIComponent(
+        `http://localhost:3000/scrape?searchTerm=${encodeURIComponent(
           searchTerm
         )}`
       );
@@ -47,9 +47,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         data.mgData.price,
         data.netmedsData.price,
       ];
+      //get min of prices belo
 
-      const localPrice = prices[Math.floor(Math.random() * prices.length)];
-
+      var localPrice =
+        prices.length > 0
+          ? prices[Math.floor(Math.random() * prices.length)]
+          : "N/A";
+      if (localPrice === undefined) {
+        localPrice = "N/A";
+      }
       const Results = [
         {
           store: "1mg",
@@ -84,6 +90,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           logo: "./assets/local.png",
           name: `${data.netmedsData.name} `,
           price: `${localPrice} `,
+          url: "https://g.co/kgs/PwaFVAs",
         },
       ];
       medicineDescription.innerHTML = data.apolloData.description;
@@ -131,7 +138,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     resultsList.style.display = "block";
   }
 });
-document.addEventListener("DOMContentLoaded", checkAuthStatus);
+fetch("navbar.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("navbar-placeholder").innerHTML = data;
+  })
+  .then(() => {
+    checkAuthStatus();
+  });
 function checkAuthStatus() {
   const token = localStorage.getItem("token");
   const authDiv = document.querySelector(".d-flex");
