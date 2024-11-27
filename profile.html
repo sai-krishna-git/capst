@@ -126,8 +126,14 @@
 
       // Load profile when page loads
       document.addEventListener("DOMContentLoaded", () => {
-        //checkAuthStatus();
-        loadProfile();
+        const seller = localStorage.getItem("seller");
+        if (seller) {
+          window.location.href = "onboarder/portal.html";
+          return;
+        } else {
+          //checkAuthStatus();
+          loadProfile();
+        }
       });
     </script>
     <script src="/js/auth.js"></script>

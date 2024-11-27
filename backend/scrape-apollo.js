@@ -34,9 +34,9 @@ async function scrapeMedicine(searchTerm) {
       const link = item.querySelector("a");
       const hrefValue = link ? link.getAttribute("href") : null;
       const name =
-        (item.querySelector(".XV")?.textContent.trim() || "N/A") +
+        (item.querySelector(".Ed")?.textContent.trim() || "N/A") +
         (item.querySelector(".wd")?.textContent.trim() || "");
-      const price = item.querySelector(".Vd")?.textContent.trim() || "N/A";
+      const price = item.querySelector(".Dd")?.textContent.trim() || "N/A";
 
       return {
         name,
@@ -50,10 +50,10 @@ async function scrapeMedicine(searchTerm) {
     }
 
     await page2.goto(medicineData.url, { waitUntil: "domcontentloaded" });
-    await page2.waitForSelector(".gn", { timeout: 20000 });
+    await page2.waitForSelector(".yv", { timeout: 20000 });
 
     const description = await page2.evaluate(() => {
-      const element = document.getElementsByClassName("gn")[0]; // Get the first element with class "gn"
+      const element = document.getElementsByClassName("yv")[0]; // Get the first element with class "gn"
       const htmlContent = element.innerHTML; // Get the HTML inside the element
 
       return htmlContent;

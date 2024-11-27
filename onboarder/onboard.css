@@ -1,19 +1,30 @@
 /* General Reset */
-body, h1, h2, h3, h4, h5, h6, p, ul, li, a, input, button {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+a,
+input,
+button {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: auto;
 }
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   line-height: 1.6;
   background-color: #f4f8fb;
   color: #333;
 }
 
-
 /* General Reset */
-
 
 /* Navbar Styles */
 .navbar {
@@ -24,7 +35,7 @@ body {
   align-items: center;
   z-index: 10;
   border-bottom: 2px solid #00a0d2;
-  
+
   min-height: 6vh;
 }
 
@@ -69,7 +80,6 @@ body {
   display: block;
 }
 
-
 /* Onboarding Form Styles */
 .onboard-wrapper {
   display: flex;
@@ -84,7 +94,7 @@ body {
   background-color: white;
   border-radius: 12px;
   padding: 30px;
-  max-width: 500px;
+  max-width: 800px;
   width: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: left;

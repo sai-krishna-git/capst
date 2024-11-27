@@ -76,7 +76,7 @@ function checkAuthStatus() {
   if (token) {
     // User is logged in
     authDiv.innerHTML = `
-            <a href="profile.html" class="btn btn-outline-light">
+            <a href="./profile.html" class="btn btn-outline-light">
                 <i class="fas fa-user"></i> Profile
             </a>
         `;
@@ -84,7 +84,7 @@ function checkAuthStatus() {
     // User is not logged in
     authDiv.innerHTML = `
             <a href="./onboarder/on.html" class="btn btn-outline-light me-2">Become a Seller</a>
-            <a href="auth.html" class="btn btn-outline-light">
+            <a href="./auth.html" class="btn btn-outline-light">
                 <i class="fas fa-user"></i> Sign in / Sign up
             </a>
         `;

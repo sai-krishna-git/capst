@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seller Portal - PharmaHub</title>
     <link rel="stylesheet" href="portal.css" />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -26,12 +27,13 @@
       <!-- Main Content Area -->
       <main class="content">
         <!-- Profile Section -->
+        <!-- onboarder/portal.html -->
         <section id="profileSection" class="active">
           <h2>Profile Details</h2>
-          <p><strong>Name:</strong> John Doe</p>
-          <p><strong>Email:</strong> johndoe@example.com</p>
-          <p><strong>Business Name:</strong> PharmaHub Pvt Ltd</p>
-          <p><strong>GSTIN:</strong> 29AABBCCDD1234Z</p>
+          <p><strong>Name:</strong> <span id="sellerName"></span></p>
+          <p><strong>Email:</strong> <span id="sellerEmail"></span></p>
+          <p><strong>Business Name:</strong> <span id="companyName"></span></p>
+          <!-- Add other fields as needed -->
         </section>
 
         <!-- Medicines Section -->
@@ -62,6 +64,9 @@
             </tbody>
           </table>
         </section>
+        <button onclick="logout()" class="btn btn-danger mt-3">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
       </main>
     </div>
 
@@ -70,12 +75,5 @@
     </footer>
 
     <script src="portal.js"></script>
-    <script>
-      fetch("navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar-placeholder").innerHTML = data;
-        });
-    </script>
   </body>
 </html>

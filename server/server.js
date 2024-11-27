@@ -4,10 +4,13 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/auth");
+const sellerRoutes = require("./routes/seller");
 const scrapeApollo = require("../backend/scrape-apollo");
 const scrapePharmEasy = require("../backend/scrape-PharmEasy");
 const scrape1mg = require("../backend/scrape-1mg");
 const scrapeNetmeds = require("../backend/scrape-netmeds");
+
+const bcrypt = require("bcryptjs");
 
 // Initialize dotenv to load environment variables from .env file
 dotenv.config();
@@ -26,6 +29,7 @@ app.use(cors());
 
 // Routes
 app.use("/api", authRoutes);
+app.use("/api/seller", sellerRoutes);
 
 // Scraping Routes
 app.get("/scrape", async (req, res) => {
@@ -41,6 +45,7 @@ app.get("/scrape", async (req, res) => {
       scrape1mg(searchTerm),
       scrapeNetmeds(searchTerm),
     ]);
+    console.log({ apolloData, pharmEasyData, mgData, netmedsData });
     res.json({ apolloData, pharmEasyData, mgData, netmedsData });
   } catch (error) {
     console.error("Error fetching results:", error);

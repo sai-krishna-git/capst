@@ -69,9 +69,32 @@ if (document.getElementById("signinForm")) {
           // Redirect to home page
           window.location.href = "/";
         } else {
-          alert(data.error);
+          const formData2 = {
+            contactEmail: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+          };
+          const response2 = await fetch(`${API_URL}/seller/signin`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData2),
+          });
+
+          const data2 = await response2.json();
+
+          if (response2.ok) {
+            // Store token in localStorage
+            localStorage.setItem("token", data2.token);
+            localStorage.setItem("seller", "true");
+            // Redirect to home page
+            window.location.href = "/onboarder/portal.html";
+          } else {
+            alert(data.error);
+          }
         }
       } catch (error) {
+        console.log(error);
         alert("An error occurred. Please try again.");
       }
     });
@@ -106,11 +129,13 @@ function logout() {
 }
 
 // Load navbar
-fetch("navbar.html")
-  .then((response) => response.text())
-  .then((data) => {
-    document.getElementById("navbar-placeholder").innerHTML = data;
-  })
-  .then(() => {
-    checkAuthStatus();
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("navbar.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .then(() => {
+      checkAuthStatus();
+    });
+});

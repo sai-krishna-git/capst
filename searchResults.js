@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       var localPrice =
         prices.length > 0
           ? prices[Math.floor(Math.random() * prices.length)]
-          : "N/A";
+          : data.pharmEasyData.price;
       if (localPrice === undefined) {
-        localPrice = "N/A";
+        localPrice = data.pharmEasyData.price;
       }
       const Results = [
         {
@@ -160,7 +160,7 @@ function checkAuthStatus() {
   } else {
     // User is not logged in
     authDiv.innerHTML = `
-            <a href="#" class="btn btn-outline-light me-2">Become a Seller</a>
+            <a href="./onboarder/on.html" class="btn btn-outline-light me-2">Become a Seller</a>
             <a href="auth.html" class="btn btn-outline-light">
                 <i class="fas fa-user"></i> Sign in / Sign up
             </a>
